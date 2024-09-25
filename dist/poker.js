@@ -100,6 +100,8 @@ class Table {
             p.cards.push(card);
         }
         AddCard(card, value);
+        if (this.cards.length != 5)
+            return;
         HandValueation.CheckForPair(p, this.cards);
         HandValueation.CheckForTwoPair(p, this.cards);
         HandValueation.CheckForThreeOfAKind(p, this.cards);
@@ -123,19 +125,15 @@ class Table {
             AddCard(this.cards[i], 0);
             deck.cards.splice(ran_card, 1);
         }
-        HandValueation.CheckForPair(p, this.cards);
-        HandValueation.CheckForTwoPair(p, this.cards);
-        HandValueation.CheckForThreeOfAKind(p, this.cards);
-        HandValueation.CheckForStraight(p, this.cards);
-        HandValueation.CheckForFlush(p, this.cards);
-        HandValueation.CheckForFullHouse(p, this.cards);
-        HandValueation.CheckForFourOfAKind(p, this.cards);
     }
     DealTurnAndRiverCard(p, deck) {
         let ran_card = Math.floor(Math.random() * deck.cards.length);
         this.cards.push(deck.cards[ran_card]);
         AddCard(deck.cards[ran_card], 0);
         deck.cards.splice(ran_card, 1);
+        console.log(this.cards.length);
+        if (this.cards.length != 5)
+            return;
         HandValueation.CheckForPair(p, this.cards);
         HandValueation.CheckForTwoPair(p, this.cards);
         HandValueation.CheckForThreeOfAKind(p, this.cards);
@@ -210,10 +208,10 @@ class HandValueation {
                 }
             });
         }
-        if (count == 3) {
-            p.handset = Handset.THREE_OF_A_KIND;
-            SendMessage('Three of A Kind');
-        }
+        if (count !== 3)
+            return;
+        p.handset = Handset.THREE_OF_A_KIND;
+        SendMessage('Three of A Kind');
     }
     static CheckForStraight(p, cards) {
         let allCards = [...p.cards, ...cards];
@@ -368,5 +366,7 @@ function Cmd_Deal(value, suit, type) {
     table.Deal_CmD(card, type);
 }
 function StartGame() {
+    table.DealPlayerInitialCards(p, deck);
+    table.DealFlopCards(p, deck);
 }
 //# sourceMappingURL=poker.js.map
