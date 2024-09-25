@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2f4f4f;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Poker table styling */
+.poker-table {
+    position: relative;
+    width: 80vw;
+    max-width: 900px;
+    height: auto;
+}
+
+.poker-table img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Table cards container */
+#table-cards {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    width: 70%;
+    height: 19%;
+    gap: 1%;
+    display: flex;
+    align-items: center;
+}
+
+/* Individual card styling */
+#table-cards img {
+    width: 13%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+#player-hand {
+    position: absolute;
+    top: 75%;
+    left: 15%;
+    width: 70%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#player-hand img {
+    width: 12%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+/* Responsive adjustments */
+/* @media (max-width: 768px) {
+    .poker-table {
+        width: 90vw;
+    }
+
+    #table-cards {
+        top: 48%;
+        width: 80%;
+        left: 10%;
+    }
+
+    #table-cards img {
+        width: 14%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .poker-table {
+        width: 95vw;
+    }
+
+    #table-cards {
+        top: 50%;
+        width: 90%;
+        left: 5%;
+    }
+
+    #table-cards img {
+        width: 18%;
+    }
+} */
